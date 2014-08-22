@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "NTClockGestureRecognizer.h"
 #import "NTClockRecognizer.h"
 
-@interface NTClockAmPmView : UIView < NTClockGestureRecognizerDelegate >
-
-@property (weak, nonatomic) IBOutlet UIImageView *amPm_ImageView;
+@interface NTClockAmPmView : UIView
 
 @property NTClockRecognizer *clockRecognizer;
 @property NSInteger integerAmPm;
+
+@property (weak, nonatomic) IBOutlet UIButton *button_AmPm;
 
 @end
