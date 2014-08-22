@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NTViewController : UIViewController
+#import "ClockRotationGesture/NTClockString.h"
+
+@class NTClockView;
+
+@interface NTViewController : UIViewController < NTClockStringDelegate >
+
+@property (weak, nonatomic) IBOutlet UILabel *label_StartTime;
+@property (weak, nonatomic) IBOutlet NTClockView *clock_StartTime;
+
+@property (weak, nonatomic) IBOutlet UILabel *label_EndTime;
+@property (weak, nonatomic) IBOutlet NTClockView *clock_EndTime;
 
 @end
