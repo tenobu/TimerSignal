@@ -20,6 +20,11 @@
 @property (weak, nonatomic) IBOutlet NTClockAmPmView   *amPmView;
 @property (weak, nonatomic) IBOutlet NTClockMinuteView *minuteView;
 @property (weak, nonatomic) IBOutlet NTClockHourView   *hourView;
+//@property (weak, nonatomic) IBOutlet UIButton *buttonAmPm;
+
+@property NTClockRecognizer *amPm_ClockRecognizer;
+@property NTClockRecognizer *hour_ClockRecognizer;
+@property NTClockRecognizer *minute_ClockRecognizer;
 
 @property NTClockString *clockString;
 @property NSString *stringTime;

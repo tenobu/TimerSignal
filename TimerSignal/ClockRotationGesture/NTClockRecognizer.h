@@ -20,13 +20,14 @@
 
 @interface NTClockRecognizer : NSObject
 {
-	
-	//id < NTClockRecognizerDelegate > target;
+
+	NSInteger integerAmPm;
 	
 }
 
 @property (nonatomic, assign) id < NTClockRecognizerDelegate > delegate;
-//@property (nonatomic, assign) id < NTClockRecognizerDelegate > myDelegate;
+
+- (void)on;
 
 - (void)amPm  : (NSInteger)_integer;
 - (void)hour  : (NSInteger)_integer;

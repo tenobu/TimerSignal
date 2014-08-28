@@ -28,11 +28,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2rb-81-aAS" customClass="NTClockView">
-                                <rect key="frame" x="60" y="302" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saM-ao-2uS">
                                 <rect key="frame" x="20" y="273" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,7 +49,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="clock_EndTime" destination="2rb-81-aAS" id="K5h-am-68x"/>
                         <outlet property="clock_StartTime" destination="69Y-5v-pYf" id="E9w-zz-UU8"/>
                         <outlet property="label_EndTime" destination="saM-ao-2uS" id="uBx-7y-VzC"/>
                         <outlet property="label_StartTime" destination="at4-Oa-bpH" id="iCv-VM-ZEJ"/>

@@ -20,7 +20,7 @@
 
 @implementation NTClockMinuteView
 
-- (id)initWithFrame: (CGRect)frame
+/*- (id)initWithFrame: (CGRect)frame
 {
     
 	self = [super initWithFrame: frame];
@@ -31,9 +31,9 @@
     
 	return self;
 	
-}
+}*/
 
-- (id)initWithCoder: (NSCoder *)decoder
+/*- (id)initWithCoder: (NSCoder *)decoder
 {
     
 	self = [super initWithCoder: decoder];
@@ -67,6 +67,46 @@
 	}
 	
 	return self;
+	
+}*/
+
++ (NTClockMinuteView *)loadInstanceOfViewFromNib
+{
+	
+    return [[[NSBundle mainBundle] loadNibNamed: @"NTClockMinuteView"
+										  owner: nil
+										options: nil] lastObject];
+	
+}
+
+- (id) awakeAfterUsingCoder: (NSCoder *)aDecoder
+{
+	
+    BOOL loadedFromSimpleVuew = ( [[self subviews] count] == 0 );
+    
+	if ( loadedFromSimpleVuew ) {
+		
+        NTClockMinuteView *clockMinuteView = [NTClockMinuteView loadInstanceOfViewFromNib];
+		
+        clockMinuteView.frame                  = self.frame;
+        clockMinuteView.autoresizingMask       = self.autoresizingMask;
+        clockMinuteView.alpha                  = self.alpha;
+        clockMinuteView.userInteractionEnabled = self.userInteractionEnabled;
+		
+        return clockMinuteView;
+		
+    }
+	
+    return self;
+	
+}
+
+- (void)awakeFromNib
+{
+	
+	[super awakeFromNib];
+	
+	//self.clockRecognizer        = self.clockRecognizer;
 	
 }
 

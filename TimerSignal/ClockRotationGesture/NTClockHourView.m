@@ -19,7 +19,7 @@
 @end
 @implementation NTClockHourView
 
-- (id)initWithFrame: (CGRect)frame
+/*- (id)initWithFrame: (CGRect)frame
 {
     
 	self = [super initWithFrame: frame];
@@ -67,6 +67,46 @@
 	
 	return self;
 	
+}*/
+
++ (NTClockHourView *)loadInstanceOfViewFromNib
+{
+	
+    return [[[NSBundle mainBundle] loadNibNamed: @"NTClockHourView"
+										  owner: nil
+										options: nil] lastObject];
+	
+}
+
+- (id) awakeAfterUsingCoder: (NSCoder *)aDecoder
+{
+	
+    BOOL loadedFromSimpleVuew = ( [[self subviews] count] == 0 );
+    
+	if ( loadedFromSimpleVuew ) {
+		
+        NTClockHourView *clockHourView = [NTClockHourView loadInstanceOfViewFromNib];
+		
+        clockHourView.frame                  = self.frame;
+        clockHourView.autoresizingMask       = self.autoresizingMask;
+        clockHourView.alpha                  = self.alpha;
+        clockHourView.userInteractionEnabled = self.userInteractionEnabled;
+		
+		//clockHourView.clockRecognizer        = self.clockRecognizer;
+		
+        return clockHourView;
+		
+    }
+	
+    return self;
+	
+}
+
+- (void)awakeFromNib
+{
+	
+	[super awakeFromNib];
+	
 }
 
 - (void) rotation: (CGFloat) angle
@@ -89,6 +129,8 @@
 	self.integerHour = imageAngle / 30;
 	
 	[self.clockRecognizer hour: self.integerHour];
+
+	NSLog( @"self 1-1 = %@", self );
 	
 }
 

@@ -19,7 +19,7 @@
 	
 @private
 	
-	NTClockRecognizer *clockRecognizer;
+	//NTClockRecognizer *clockRecognizer;
 		
 	NSString *stringAmPm;
 	NSString *stringHour;
@@ -31,7 +31,7 @@
 
 @implementation NTClockView
 
-- (id)initWithFrame: (CGRect)frame
+/*- (id)initWithFrame: (CGRect)frame
 {
     
 	self = [super initWithFrame: frame];
@@ -63,17 +63,9 @@
 			
 			NSArray *array = [subview subviews];
 			
-			self.amPmView   = [array objectAtIndex: 0];
-			self.minuteView = [array objectAtIndex: 1];
-			self.hourView   = [array objectAtIndex: 2];
-			
-			clockRecognizer = [[NTClockRecognizer alloc] init];
-
-			clockRecognizer.delegate = self;
-			
-			self.amPmView.clockRecognizer   = clockRecognizer;
-			self.minuteView.clockRecognizer = clockRecognizer;
-			self.hourView.clockRecognizer   = clockRecognizer;
+			self.amPmView   = [array objectAtIndex: 1];
+			self.minuteView = [array objectAtIndex: 2];
+			self.hourView   = [array objectAtIndex: 3];
 			
 		}
 		
@@ -81,19 +73,79 @@
 	
 	return self;
 	
+}*/
+
++ (NTClockView *)loadInstanceOfViewFromNib
+{
+	
+    return [[[NSBundle mainBundle] loadNibNamed: @"NTClockView"
+										  owner: nil
+										options: nil] lastObject];
+	
+}
+
+// オーバーライド
+- (id) awakeAfterUsingCoder: (NSCoder *)aDecoder
+{
+	
+    BOOL loadedFromSimpleVuew = ( [[self subviews] count] == 0 );
+    
+	if ( loadedFromSimpleVuew ) {
+		
+        NTClockView *clockView = [NTClockView loadInstanceOfViewFromNib];
+		
+        clockView.frame                  = self.frame;
+        clockView.autoresizingMask       = self.autoresizingMask;
+        clockView.alpha                  = self.alpha;
+        clockView.userInteractionEnabled = self.userInteractionEnabled;
+
+        return clockView;
+		
+    }
+	
+    return self;
+	
+}
+
+- (void)awakeFromNib
+{
+
+	[super awakeFromNib];
+		
+	//clockRecognizer.delegate = self;
+	
+ 	self.amPm_ClockRecognizer = self.amPmView.clockRecognizer;
+	self.amPm_ClockRecognizer.delegate = self;
+	
+	//self.minuteView.clockRecognizer = clockRecognizer;
+	//self.hourView.clockRecognizer   = clockRecognizer;
+	
+	stringAmPm = @"AM";
+	
 }
 
 - (void)amPm: (NSInteger)_integer
 {
+
+	NSLog( @"AmPm = %02ld", _integer );
 	
-	// NSLog( @"AM PM = %ld", _integer );
-	
-	stringAmPm = @"AM";
-	if ( _integer == 2 ) {
+	/*if ( _integer == 1 ) {
+		
+		stringAmPm = @"AM";
+		
+		UIImage *image = [UIImage imageNamed: @"Enn_AM.png"];
+		
+		[self.buttonAmPm setImage: image forState: UIControlStateNormal];
+		
+	} else if ( _integer == 2 ) {
 		
 		stringAmPm = @"PM";
 		
-	}
+		UIImage *image = [UIImage imageNamed: @"Enn_PM.png"];
+		
+		[self.buttonAmPm setImage: image forState: UIControlStateNormal];
+		
+	}*/
 
 	[self time];
 	
@@ -104,7 +156,7 @@
 	
 	// NSLog( @"Hour = %02ld", _integer );
 	
-	stringHour = [NSString stringWithFormat: @"%02d", _integer];
+	stringHour = [NSString stringWithFormat: @"%02ld", _integer];
 	
 	[self time];
 	
@@ -115,7 +167,7 @@
 	
 	// NSLog( @"Minute = %02ld", _integer );
 	
-	stringMinute = [NSString stringWithFormat: @"%02d", _integer];
+	stringMinute = [NSString stringWithFormat: @"%02ld", _integer];
 	
 	[self time];
 	
@@ -126,9 +178,38 @@
 	
 	self.stringTime = [NSString stringWithFormat: @"%@ %@:%@", stringAmPm, stringHour, stringMinute];
 
-	// NSLog( @"Time = %@", self.stringTime );
+	NSLog( @"Time = %@", self.stringTime );
 	
 	[self.clockString time: self.stringTime];
+	
+}
+
+- (IBAction)button_Action:(id)sender
+{
+
+	/*if ( _integer == 1 ) {
+		
+		_integer = 2;
+		
+		stringAmPm = @"AM";
+		
+		UIImage *image = [UIImage imageNamed: @"Enn_PM.png"];
+		
+		[self.buttonAmPm setImage: image forState: UIControlStateNormal];
+		
+	} else if ( _integer == 2 ) {
+		
+		_integer = 1;
+		
+		stringAmPm = @"PM";
+		
+		UIImage *image = [UIImage imageNamed: @"Enn_AM.png"];
+		
+		[self.buttonAmPm setImage: image forState: UIControlStateNormal];
+		
+	}*/
+
+	[self.amPmView.clockRecognizer on];
 	
 }
 

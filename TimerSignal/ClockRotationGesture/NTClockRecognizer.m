@@ -10,6 +10,33 @@
 
 @implementation NTClockRecognizer
 
+- (id)init
+{
+
+	if ( self = [super init] ) {
+
+		integerAmPm = 1;
+		
+	}
+	
+	return self;
+	
+}
+
+- (void)on
+{
+
+	integerAmPm ++;
+	if ( integerAmPm > 2 ) {
+		
+		integerAmPm = 1;
+		
+	}
+	
+	[self amPm: integerAmPm];
+	
+}
+
 - (void)amPm: (NSInteger)_integer
 {
 	
