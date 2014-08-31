@@ -2,7 +2,7 @@
 //  NTClockHourView.m
 //  ClockRotationGesture
 //
-//  Created by ビザンコムマック０９ on 2014/08/18.
+//  Created by ビザンコムマック０９ on 2014/08/29.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
@@ -11,94 +11,26 @@
 @interface NTClockHourView ()
 {
 	
-@private CGFloat imageAngle;
-@private NTClockGestureRecognizer *gestureRecognizer;
+@private
+	
+	NTClockGestureRecognizer *gestureRecognizer;
 	
 }
 
 @end
+
 @implementation NTClockHourView
 
-/*- (id)initWithFrame: (CGRect)frame
+- (id)initWithFrame: (CGRect)frame
 {
     
 	self = [super initWithFrame: frame];
 	
-    if (self) {
+    if ( self ) {
 		
 	}
     
 	return self;
-	
-}
-
-- (id)initWithCoder: (NSCoder *)decoder
-{
-    
-	self = [super initWithCoder: decoder];
-	
-	if (self) {
-		
-		if ( ! self.subviews.count ) {
-            
-			UIView *subview = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass( [self class] )
-															owner: nil
-														  options: nil] [0];
-            
-			subview.frame = self.bounds;
-            
-			[self addSubview: subview];
-			
-			NSArray *array = [subview subviews];
-			
-			self.hour_ImageView = [array objectAtIndex: 0];
-			self.hour_ImageView.frame = subview.frame;
-			
-			imageAngle = 0;
-			
-			gestureRecognizer = [[NTClockGestureRecognizer alloc] initWithRect: self.hour_ImageView.frame
-																		target: self];
-			
-			[self addGestureRecognizer: gestureRecognizer];
-			
-		}
-		
-	}
-	
-	return self;
-	
-}*/
-
-+ (NTClockHourView *)loadInstanceOfViewFromNib
-{
-	
-    return [[[NSBundle mainBundle] loadNibNamed: @"NTClockHourView"
-										  owner: nil
-										options: nil] lastObject];
-	
-}
-
-- (id) awakeAfterUsingCoder: (NSCoder *)aDecoder
-{
-	
-    BOOL loadedFromSimpleVuew = ( [[self subviews] count] == 0 );
-    
-	if ( loadedFromSimpleVuew ) {
-		
-        NTClockHourView *clockHourView = [NTClockHourView loadInstanceOfViewFromNib];
-		
-        clockHourView.frame                  = self.frame;
-        clockHourView.autoresizingMask       = self.autoresizingMask;
-        clockHourView.alpha                  = self.alpha;
-        clockHourView.userInteractionEnabled = self.userInteractionEnabled;
-		
-		//clockHourView.clockRecognizer        = self.clockRecognizer;
-		
-        return clockHourView;
-		
-    }
-	
-    return self;
 	
 }
 
@@ -107,30 +39,48 @@
 	
 	[super awakeFromNib];
 	
+	// NSLog( @"hour : %@", NSStringFromCGRect( self.bounds ));
+	
+	gestureRecognizer = [[NTClockGestureRecognizer alloc] initWithRect: self.bounds
+																target: self];
+
+	[self addGestureRecognizer: gestureRecognizer];
+	
+}
+
+- (void)time: (NSInteger)_hour
+{
+	
+	self.integer_Hour = _hour;
+	
+	self.imageAngle = self.integer_Hour * 30;
+
+	self.transform = CGAffineTransformMakeRotation( self.imageAngle *  M_PI / 180 );
+
+	[self.clockRecognizer integerHour: self.integer_Hour];
+
 }
 
 - (void) rotation: (CGFloat) angle
 {
     
-    imageAngle += angle;
-    
-	if (imageAngle > 360) {
+    self.imageAngle += angle;
+	
+	if ( self.imageAngle > 360 ) {
 		
-		imageAngle -= 360;
+		self.imageAngle -= 360;
 		
-	} else if (imageAngle < 0) {
+	} else if ( self.imageAngle < 0 ) {
 		
-		imageAngle += 360;
+		self.imageAngle += 360;
 		
 	}
 	
-    self.hour_ImageView.transform = CGAffineTransformMakeRotation( imageAngle *  M_PI / 180 );
+	self.transform = CGAffineTransformMakeRotation( self.imageAngle *  M_PI / 180 );
 	
-	self.integerHour = imageAngle / 30;
+	self.integer_Hour = self.imageAngle / 30;
 	
-	[self.clockRecognizer hour: self.integerHour];
-
-	NSLog( @"self 1-1 = %@", self );
+	[self.clockRecognizer integerHour: self.integer_Hour];
 	
 }
 

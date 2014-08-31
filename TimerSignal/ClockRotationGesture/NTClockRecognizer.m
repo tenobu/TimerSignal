@@ -15,7 +15,7 @@
 
 	if ( self = [super init] ) {
 
-		integerAmPm = 1;
+		//integerAmPm = 1;
 		
 	}
 	
@@ -23,7 +23,7 @@
 	
 }
 
-- (void)on
+/*- (void)on
 {
 
 	integerAmPm ++;
@@ -46,9 +46,9 @@
 		
     }
 	
-}
+}*/
 
-- (void)hour: (NSInteger)_integer
+- (void)integerHour: (NSInteger)_integer
 {
 	
 	if ( [self.delegate respondsToSelector: @selector(hour:)] ) {
@@ -59,7 +59,7 @@
 	
 }
 
-- (void)minute: (NSInteger)_integer
+- (void)integerMinute: (NSInteger)_integer
 {
 	
 	if ( [self.delegate respondsToSelector: @selector(minute:)] ) {

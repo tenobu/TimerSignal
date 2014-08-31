@@ -1,24 +1,14 @@
 //
 //  NTViewController.m
-//  TimerSignal
+//  Test007
 //
-//  Created by ビザンコムマック０９ on 2014/08/22.
+//  Created by ビザンコムマック０９ on 2014/08/28.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
 #import "NTViewController.h"
 
-#import "ClockRotationGesture/NTClockView.h"
-#import "ClockRotationGesture/NTClockString.h"
-
 @interface NTViewController ()
-{
-
-@private
-		
-	NTClockString *clockString;
-	
-}
 
 @end
 
@@ -26,44 +16,41 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+    
+	[super viewDidLoad];
+
+	self.clockView_Start.delegate = (id)self;
+	self.clockView_End.delegate   = (id)self;
 	
-	if ( ! self.view.subviews.count ) {
-		
-		UIView *subview = [[NSBundle mainBundle] loadNibNamed: NSStringFromClass( [self class] )
-														owner: nil
-													  options: nil] [0];
-		
-		subview.frame = self.view.bounds;
-		
-		[self.view addSubview: subview];
-		
-		NSArray *array = [subview subviews];
-		
-		self.clock_StartTime   = [array objectAtIndex: 0];
-		
-		clockString = [[NTClockString alloc] init];
-		
-		clockString.delegate = self;
-		
-		self.clock_StartTime.clockString = clockString;
-		
-	}
+	self.clockView_Start.string_StartEnd = @"Start";
+	self.clockView_End.string_StartEnd   = @"End";
 	
-	clockString = [[NTClockString alloc] init];
-	
-	clockString.delegate = self;
-	
-	self.clock_StartTime.clockString = clockString;
-	
-	[clockString setTimeString: @"AM 09:30"];
+	self.clockView_Start.string_TimeNow = @"PM 09:30";
 
 }
 
 - (void)didReceiveMemoryWarning
 {
+
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+}
+
+- (void)time: (NSString *)_startEnd
+{
+	
+	if ( [_startEnd isEqualToString: @"Start"] ) {
+		
+		self.label_Start_AmPm.text = self.clockView_Start.string_AmPm;
+		self.label_Start_HHMM.text = self.clockView_Start.string_HHMM;
+		
+	} else if ( [_startEnd isEqualToString: @"End"] ) {
+		
+		self.label_End_AmPm.text = self.clockView_End.string_AmPm;
+		self.label_End_HHMM.text = self.clockView_End.string_HHMM;
+		
+	}
+	
 }
 
 @end

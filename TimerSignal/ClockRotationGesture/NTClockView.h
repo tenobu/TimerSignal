@@ -2,31 +2,37 @@
 //  NTClockView.h
 //  ClockRotationGesture
 //
-//  Created by ビザンコムマック０９ on 2014/08/18.
+//  Created by ビザンコムマック０９ on 2014/08/28.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-#import "NTClockRecognizer.h"
+#import "NTClockHourView.h"
+#import "NTClockMinuteView.h"
 
-@class NTClockAmPmView;
-@class NTClockMinuteView;
-@class NTClockHourView;
-@class NTClockString;
+@protocol NTClockViewDelegate < NSObject >
+
+@optional
+
+- (void)time: (NSString *)_startEnd;
+
+@end
 
 @interface NTClockView : UIView < NTClockRecognizerDelegate >
 
-@property (weak, nonatomic) IBOutlet NTClockAmPmView   *amPmView;
-@property (weak, nonatomic) IBOutlet NTClockMinuteView *minuteView;
-@property (weak, nonatomic) IBOutlet NTClockHourView   *hourView;
-//@property (weak, nonatomic) IBOutlet UIButton *buttonAmPm;
+@property (weak, nonatomic) IBOutlet UIButton *button_AmPm;
+@property (weak, nonatomic) IBOutlet NTClockHourView   *imageView_Hour;
+@property (weak, nonatomic) IBOutlet NTClockMinuteView *imageView_Minute;
 
-@property NTClockRecognizer *amPm_ClockRecognizer;
-@property NTClockRecognizer *hour_ClockRecognizer;
-@property NTClockRecognizer *minute_ClockRecognizer;
+@property (nonatomic, assign) id < NTClockViewDelegate > delegate;
 
-@property NTClockString *clockString;
-@property NSString *stringTime;
+@property NSString *string_StartEnd;
+
+@property NSString *string_Time, *string_TimeNow;
+@property NSString *string_AmPm, *string_HHMM;
+@property NSInteger integer_AmPm, integer_Hour, integer_Minute;
+
+- (void)time;
 
 @end

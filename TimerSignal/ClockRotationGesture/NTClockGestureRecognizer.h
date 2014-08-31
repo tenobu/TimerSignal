@@ -1,6 +1,6 @@
 //
 //  NTClockGestureRecognizer.h
-//  TimerSample01
+//  ClockRotationGesture
 //
 //  Created by ビザンコムマック０９ on 2014/08/06.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
@@ -20,14 +20,14 @@
 
 @interface NTClockGestureRecognizer : UIGestureRecognizer
 {
-	
+
+	id < NTClockGestureRecognizerDelegate > target;
+
 	CGPoint midPoint;
 	CGFloat innerRadius;
 	CGFloat outerRadius;
 	CGFloat cumulatedAngle;
-	
-	id < NTClockGestureRecognizerDelegate > target;
-	
+		
 }
 
 - (id) initWithRect: (CGRect) rect

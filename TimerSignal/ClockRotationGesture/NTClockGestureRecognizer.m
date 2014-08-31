@@ -1,6 +1,7 @@
+
 //
 //  NTClockGestureRecognizer.m
-//  TimerSample01
+//  ClockRotationGesture
 //
 //  Created by ビザンコムマック０９ on 2014/08/06.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
@@ -92,13 +93,13 @@ CGFloat angleBetweenLinesInDegrees( CGPoint beginLineA,
    
 	[super touchesMoved:touches withEvent:event];
 	
-    if (self.state == UIGestureRecognizerStateFailed) return;
+    if ( self.state == UIGestureRecognizerStateFailed ) return;
 	
     CGPoint nowPoint  = [[touches anyObject] locationInView: self.view];
     CGPoint prevPoint = [[touches anyObject] previousLocationInView: self.view];
 	
     // make sure the new point is within the area
-    CGFloat distance = distanceBetweenPoints(midPoint, nowPoint);
+    CGFloat distance = distanceBetweenPoints( midPoint, nowPoint );
     if (   innerRadius <= distance
         && distance    <= outerRadius)
     {
@@ -118,7 +119,7 @@ CGFloat angleBetweenLinesInDegrees( CGPoint beginLineA,
         // sum up single steps
         cumulatedAngle += angle;
 
-		NSLog( @"%@", [NSString stringWithFormat: @"%f", cumulatedAngle] );
+		// NSLog( @"%@", [NSString stringWithFormat: @"%f", cumulatedAngle] );
 		
         // call delegate
         if ([target respondsToSelector: @selector(rotation:)])
