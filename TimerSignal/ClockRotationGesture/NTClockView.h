@@ -29,6 +29,7 @@
 
 @property NSString *string_StartEnd;
 
+@property NSDate *date_DateTime;
 @property NSString *string_Time, *string_TimeNow;
 @property NSString *string_AmPm, *string_HHMM;
 @property NSInteger integer_AmPm, integer_Hour, integer_Minute;

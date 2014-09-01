@@ -63,7 +63,6 @@
 	self.integer_AmPm = 1;
 	self.integer_Hour = self.integer_Minute = 0;
 	
-	//self.hour_ImageView.clockRecognizer.delegate   = (id)self;
 	self.imageView_Hour.clockRecognizer.delegate   = (id)self;
 	self.imageView_Minute.clockRecognizer.delegate = (id)self;
 
@@ -79,6 +78,51 @@
 	
 	self.imageView_Hour.clockRecognizer   = clockRecognizer;
 	self.imageView_Minute.clockRecognizer = clockRecognizer;
+	
+}
+
+- (void)setDate_DateTime:(NSDate *)_date_datetime
+{
+
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
+	
+	NSString *string_datetime = [dateFormatter stringFromDate: _date_datetime];
+	NSString *string_time = [string_datetime substringFromIndex: 11];
+	NSString *string_hout = [string_time     substringToIndex  :  2];
+	
+	NSInteger integer_hour = string_hout.integerValue;
+	
+	if ( 0 <= integer_hour && integer_hour <= 11 ) {
+		
+		self.string_AmPm = @"AM";
+		self.integer_AmPm = 2;
+		
+	} else if ( 12 <= integer_hour && integer_hour <= 23 ) {
+		
+		self.string_AmPm = @"PM";
+		self.integer_AmPm = 1;
+		
+		integer_hour -= 12;
+		
+	}
+	
+	string_Hour         = [NSString stringWithFormat: @"%ld", integer_hour];
+	self.integer_Hour   = string_Hour.integerValue;
+	
+	string_Minute       = [string_time substringWithRange: NSMakeRange(3, 2)];
+	self.integer_Minute = string_Minute.integerValue;
+	
+	[self button_Action        : nil];
+	[self.imageView_Hour   time: self.integer_Hour];
+	[self.imageView_Minute time: self.integer_Minute];
+		
+}
+
+- (NSDate *)date_DateTime
+{
+
+	return self.date_DateTime;
 	
 }
 

@@ -41,6 +41,7 @@
 		07A2E51019B2C1390040A4F3 /* Go_x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07A2E50419B2C1390040A4F3 /* Go_x1.png */; };
 		07A2E51119B2C1390040A4F3 /* Go_x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07A2E50519B2C1390040A4F3 /* Go_x2.png */; };
 		07A2E51319B2C1DC0040A4F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07A2E51219B2C1DC0040A4F3 /* Images.xcassets */; };
+		07A2E51919B2C7630040A4F3 /* NTSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		07A2E50419B2C1390040A4F3 /* Go_x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Go_x1.png; sourceTree = "<group>"; };
 		07A2E50519B2C1390040A4F3 /* Go_x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Go_x2.png; sourceTree = "<group>"; };
 		07A2E51219B2C1DC0040A4F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		07A2E51619B2C7630040A4F3 /* NTSignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTSignalViewController.h; sourceTree = "<group>"; };
+		07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTSignalViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				0795425619A6D465009DACD1 /* NTAppDelegate.m */,
 				0795425B19A6D465009DACD1 /* NTViewController.h */,
 				0795425C19A6D465009DACD1 /* NTViewController.m */,
+				07A2E51619B2C7630040A4F3 /* NTSignalViewController.h */,
+				07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */,
 				0795428E19A6D6EB009DACD1 /* ClockRotationGesture */,
 				07A2E51219B2C1DC0040A4F3 /* Images.xcassets */,
 				0795427B19A6D54F009DACD1 /* Images */,
@@ -359,6 +364,7 @@
 				07A2E4EB19B1ABD70040A4F3 /* NTClockHariView.m in Sources */,
 				07A2E4EE19B1ABD70040A4F3 /* NTClockRecognizer.m in Sources */,
 				07A2E4F019B1ABD70040A4F3 /* NTClockView.m in Sources */,
+				07A2E51919B2C7630040A4F3 /* NTSignalViewController.m in Sources */,
 				07A2E4EA19B1ABD70040A4F3 /* NTClockGestureRecognizer.m in Sources */,
 				07A2E4EF19B1ABD70040A4F3 /* NTClockString.m in Sources */,
 				0795425319A6D465009DACD1 /* main.m in Sources */,

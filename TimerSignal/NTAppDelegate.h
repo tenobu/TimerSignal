@@ -11,16 +11,20 @@
 @interface NTAppDelegate : UIResponder <UIApplicationDelegate>
 {
 
-    NSString *startDateTime, *stopDateTime;
+    //NSString *startDateTime, *stopDateTime;
     
 }
 
 @property (strong, nonatomic) UIWindow *window;
 
-- (void)setStartDateTime: (NSString *)start_date_time;
+@property NSString *string_StartDate, *string_EndDate;
+@property NSString *string_StartTime, *string_EndTime;
+@property NSString *string_StartTime24, *string_EndTime24;
+
+/*- (void)setStartDateTime: (NSString *)start_date_time;
 - (NSString *)startDateTime;
 
 - (void)setStopDateTime : (NSString *)stop_date_time;
-- (NSString *)stopDateTime;
+- (NSString *)stopDateTime;*/
 
 @end

@@ -43,8 +43,70 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)setString_StartTime:(NSString *)_string_StartTime
+{
+	
+	NSString *string_am_pm  = [_string_StartTime substringWithRange: NSMakeRange( 0, 2 )];
+	NSString *string_hour   = [_string_StartTime substringWithRange: NSMakeRange( 3, 2 )];
+	NSString *string_minute = [_string_StartTime substringWithRange: NSMakeRange( 6, 2 )];
+	
+	if ( [string_am_pm isEqualToString: @"PM"] ) {
+		
+		string_hour = [NSString stringWithFormat: @"%02ld", string_hour.integerValue + 12];
+		
+	}
+	
+	self.string_StartTime24 = [NSString stringWithFormat: @"%@:%@:00", string_hour, string_minute];
+
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
+	
+	NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateFormat: @"HH:mm:ss"];
+	
+	NSDate *time = [timeFormatter dateFromString: self.string_StartTime24];
+
+	NSString *string_time = [dateFormatter stringFromDate: time];
+	
+	NSLog( @"%@", string_time );
+	
+}
+
+- (NSString *)string_StartTime
+{
+	
+	NSString *string_start = self.string_StartTime;
+	
+	return string_start;
+	
+}
+
+- (void)setString_EndTime:(NSString *)_string_EndTime
+{
+	
+	NSString *string_am_pm  = [_string_EndTime substringWithRange: NSMakeRange( 0, 2 )];
+	NSString *string_hour   = [_string_EndTime substringWithRange: NSMakeRange( 3, 2 )];
+	NSString *string_minute = [_string_EndTime substringWithRange: NSMakeRange( 6, 2 )];
+	
+	if ( [string_am_pm isEqualToString: @"PM"] ) {
+		
+		string_hour = [NSString stringWithFormat: @"%02ld", string_hour.integerValue + 12];
+		
+	}
+	
+	self.string_EndTime24 = [NSString stringWithFormat: @"%@:%@:00", string_hour, string_minute];
+	
+}
+
+- (NSString *)string_EndTime
+{
+	
+	return self.string_EndTime;
+	
+}
+
 // 開始時間のセット
-- (void)setStartDateTime: (NSString *)start_date_time
+/*- (void)setStartDateTime: (NSString *)start_date_time
 {
     
     startDateTime = start_date_time;
@@ -73,6 +135,6 @@
     
     return stopDateTime;
     
-}
+}*/
 
 @end
