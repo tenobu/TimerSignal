@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="655" y="431"/>
         </scene>
-        <!--View Controller-->
+        <!--2th View Controller-->
         <scene sceneID="jtA-iu-Jlg">
             <objects>
-                <viewController storyboardIdentifier="4-inch" id="wXO-8A-Voo" customClass="NTViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="T2th" id="wXO-8A-Voo" customClass="NTT2thViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cdr-8Q-5xl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,9 +175,6 @@
                                 <state key="normal" image="Go">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="ifF-li-yLj" kind="modal" identifier="" id="MYF-BD-DyY"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

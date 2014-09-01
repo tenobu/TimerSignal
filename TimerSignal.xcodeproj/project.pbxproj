@@ -14,7 +14,6 @@
 		0795425319A6D465009DACD1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0795425219A6D465009DACD1 /* main.m */; };
 		0795425719A6D465009DACD1 /* NTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0795425619A6D465009DACD1 /* NTAppDelegate.m */; };
 		0795425A19A6D465009DACD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0795425819A6D465009DACD1 /* Main.storyboard */; };
-		0795425D19A6D465009DACD1 /* NTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0795425C19A6D465009DACD1 /* NTViewController.m */; };
 		0795426619A6D465009DACD1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0795426519A6D465009DACD1 /* XCTest.framework */; };
 		0795426719A6D465009DACD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0795424619A6D465009DACD1 /* Foundation.framework */; };
 		0795426819A6D465009DACD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0795424A19A6D465009DACD1 /* UIKit.framework */; };
@@ -42,6 +41,8 @@
 		07A2E51119B2C1390040A4F3 /* Go_x2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07A2E50519B2C1390040A4F3 /* Go_x2.png */; };
 		07A2E51319B2C1DC0040A4F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07A2E51219B2C1DC0040A4F3 /* Images.xcassets */; };
 		07A2E51919B2C7630040A4F3 /* NTSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */; };
+		07A2E53419B419EE0040A4F3 /* NTT2thViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E53319B419EE0040A4F3 /* NTT2thViewController.m */; };
+		07A2E53719B41AE00040A4F3 /* NTT1thViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E53619B41AE00040A4F3 /* NTT1thViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +67,6 @@
 		0795425519A6D465009DACD1 /* NTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTAppDelegate.h; sourceTree = "<group>"; };
 		0795425619A6D465009DACD1 /* NTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTAppDelegate.m; sourceTree = "<group>"; };
 		0795425919A6D465009DACD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0795425B19A6D465009DACD1 /* NTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTViewController.h; sourceTree = "<group>"; };
-		0795425C19A6D465009DACD1 /* NTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTViewController.m; sourceTree = "<group>"; };
 		0795426419A6D465009DACD1 /* TimerSignalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerSignalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0795426519A6D465009DACD1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0795426D19A6D465009DACD1 /* TimerSignalTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TimerSignalTests-Info.plist"; sourceTree = "<group>"; };
@@ -103,6 +102,10 @@
 		07A2E51219B2C1DC0040A4F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		07A2E51619B2C7630040A4F3 /* NTSignalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTSignalViewController.h; sourceTree = "<group>"; };
 		07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTSignalViewController.m; sourceTree = "<group>"; };
+		07A2E53219B419EE0040A4F3 /* NTT2thViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTT2thViewController.h; sourceTree = "<group>"; };
+		07A2E53319B419EE0040A4F3 /* NTT2thViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTT2thViewController.m; sourceTree = "<group>"; };
+		07A2E53519B41AE00040A4F3 /* NTT1thViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTT1thViewController.h; sourceTree = "<group>"; };
+		07A2E53619B41AE00040A4F3 /* NTT1thViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTT1thViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +168,10 @@
 				0795425819A6D465009DACD1 /* Main.storyboard */,
 				0795425519A6D465009DACD1 /* NTAppDelegate.h */,
 				0795425619A6D465009DACD1 /* NTAppDelegate.m */,
-				0795425B19A6D465009DACD1 /* NTViewController.h */,
-				0795425C19A6D465009DACD1 /* NTViewController.m */,
+				07A2E53219B419EE0040A4F3 /* NTT2thViewController.h */,
+				07A2E53319B419EE0040A4F3 /* NTT2thViewController.m */,
+				07A2E53519B41AE00040A4F3 /* NTT1thViewController.h */,
+				07A2E53619B41AE00040A4F3 /* NTT1thViewController.m */,
 				07A2E51619B2C7630040A4F3 /* NTSignalViewController.h */,
 				07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */,
 				0795428E19A6D6EB009DACD1 /* ClockRotationGesture */,
@@ -358,10 +363,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0795425D19A6D465009DACD1 /* NTViewController.m in Sources */,
+				07A2E53719B41AE00040A4F3 /* NTT1thViewController.m in Sources */,
 				07A2E4ED19B1ABD70040A4F3 /* NTClockMinuteView.m in Sources */,
 				0795425719A6D465009DACD1 /* NTAppDelegate.m in Sources */,
 				07A2E4EB19B1ABD70040A4F3 /* NTClockHariView.m in Sources */,
+				07A2E53419B419EE0040A4F3 /* NTT2thViewController.m in Sources */,
 				07A2E4EE19B1ABD70040A4F3 /* NTClockRecognizer.m in Sources */,
 				07A2E4F019B1ABD70040A4F3 /* NTClockView.m in Sources */,
 				07A2E51919B2C7630040A4F3 /* NTSignalViewController.m in Sources */,

@@ -1,32 +1,30 @@
 //
-//  NTViewController.m
-//  Test007
+//  NTT2thViewController.m
+//  TimerSignal
 //
-//  Created by ビザンコムマック０９ on 2014/08/28.
+//  Created by ビザンコムマック０９ on 2014/09/01.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
-#import "NTViewController.h"
+#import "NTT2thViewController.h"
 
-#import "NTAppDelegate.h"
-
-@interface NTViewController ()
+@interface NTT2thViewController ()
 
 @end
 
-@implementation NTViewController
+@implementation NTT2thViewController
 
 - (void)viewDidLoad
 {
     
 	[super viewDidLoad];
-
+	
 	self.clockView_Start.delegate = (id)self;
 	self.clockView_End.delegate   = (id)self;
 	
 	self.clockView_Start.string_StartEnd = @"Start";
 	self.clockView_End.string_StartEnd   = @"End";
-
+	
     //NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
 	
 	self.clockView_Start.date_DateTime = [NSDate new];
@@ -39,7 +37,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-
+	
     [super didReceiveMemoryWarning];
     
 }
@@ -47,15 +45,15 @@
 - (void)time: (NSString *)_startEnd
 {
 	
-   // NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
+	// NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
 	
 	if ( [_startEnd isEqualToString: @"Start"] ) {
 		
 		self.label_Start_AmPm.text = self.clockView_Start.string_AmPm;
 		self.label_Start_HHMM.text = self.clockView_Start.string_HHMM;
-
+		
 		/*app.string_StartTime = [NSString stringWithFormat:
-								@"%@ %@", self.clockView_Start.string_AmPm, self.clockView_Start.string_HHMM];*/
+		 @"%@ %@", self.clockView_Start.string_AmPm, self.clockView_Start.string_HHMM];*/
 		
 	} else if ( [_startEnd isEqualToString: @"End"] ) {
 		
@@ -63,7 +61,7 @@
 		self.label_End_HHMM.text = self.clockView_End.string_HHMM;
 		
 		/*app.string_EndTime = [NSString stringWithFormat:
-							  @"%@ %@", self.clockView_End.string_AmPm, self.clockView_End.string_HHMM];*/
+		 @"%@ %@", self.clockView_End.string_AmPm, self.clockView_End.string_HHMM];*/
 		
 	}
 	
