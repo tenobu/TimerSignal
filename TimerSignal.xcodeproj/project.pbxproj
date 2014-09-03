@@ -43,6 +43,11 @@
 		07A2E51919B2C7630040A4F3 /* NTSignalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */; };
 		07A2E53419B419EE0040A4F3 /* NTT2thViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E53319B419EE0040A4F3 /* NTT2thViewController.m */; };
 		07A2E53719B41AE00040A4F3 /* NTT1thViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E53619B41AE00040A4F3 /* NTT1thViewController.m */; };
+		07A2E59819B697ED0040A4F3 /* NTClockLookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07A2E59719B697ED0040A4F3 /* NTClockLookView.xib */; };
+		07A2E59B19B698520040A4F3 /* NTClockLookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E59A19B698520040A4F3 /* NTClockLookView.m */; };
+		07A2E59E19B6A3290040A4F3 /* NTClockHariLookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E59D19B6A3290040A4F3 /* NTClockHariLookView.m */; };
+		07A2E5A119B6A3990040A4F3 /* NTClockHourLookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E5A019B6A3990040A4F3 /* NTClockHourLookView.m */; };
+		07A2E5A419B6A3DC0040A4F3 /* NTClockMinuteLookView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07A2E5A319B6A3DC0040A4F3 /* NTClockMinuteLookView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +111,15 @@
 		07A2E53319B419EE0040A4F3 /* NTT2thViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTT2thViewController.m; sourceTree = "<group>"; };
 		07A2E53519B41AE00040A4F3 /* NTT1thViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTT1thViewController.h; sourceTree = "<group>"; };
 		07A2E53619B41AE00040A4F3 /* NTT1thViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTT1thViewController.m; sourceTree = "<group>"; };
+		07A2E59719B697ED0040A4F3 /* NTClockLookView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTClockLookView.xib; sourceTree = "<group>"; };
+		07A2E59919B698520040A4F3 /* NTClockLookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTClockLookView.h; sourceTree = "<group>"; };
+		07A2E59A19B698520040A4F3 /* NTClockLookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTClockLookView.m; sourceTree = "<group>"; };
+		07A2E59C19B6A3290040A4F3 /* NTClockHariLookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTClockHariLookView.h; sourceTree = "<group>"; };
+		07A2E59D19B6A3290040A4F3 /* NTClockHariLookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTClockHariLookView.m; sourceTree = "<group>"; };
+		07A2E59F19B6A3990040A4F3 /* NTClockHourLookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTClockHourLookView.h; sourceTree = "<group>"; };
+		07A2E5A019B6A3990040A4F3 /* NTClockHourLookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTClockHourLookView.m; sourceTree = "<group>"; };
+		07A2E5A219B6A3DC0040A4F3 /* NTClockMinuteLookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTClockMinuteLookView.h; sourceTree = "<group>"; };
+		07A2E5A319B6A3DC0040A4F3 /* NTClockMinuteLookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTClockMinuteLookView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +189,7 @@
 				07A2E51619B2C7630040A4F3 /* NTSignalViewController.h */,
 				07A2E51719B2C7630040A4F3 /* NTSignalViewController.m */,
 				0795428E19A6D6EB009DACD1 /* ClockRotationGesture */,
+				07A2E57F19B696C30040A4F3 /* ClockLookView */,
 				07A2E51219B2C1DC0040A4F3 /* Images.xcassets */,
 				0795427B19A6D54F009DACD1 /* Images */,
 				0795424D19A6D465009DACD1 /* Supporting Files */,
@@ -250,6 +265,22 @@
 				07A2E4DC19B1ABD70040A4F3 /* NTClockGestureRecognizer.m */,
 			);
 			name = ClockRotationGesture;
+			sourceTree = "<group>";
+		};
+		07A2E57F19B696C30040A4F3 /* ClockLookView */ = {
+			isa = PBXGroup;
+			children = (
+				07A2E59719B697ED0040A4F3 /* NTClockLookView.xib */,
+				07A2E59919B698520040A4F3 /* NTClockLookView.h */,
+				07A2E59A19B698520040A4F3 /* NTClockLookView.m */,
+				07A2E59C19B6A3290040A4F3 /* NTClockHariLookView.h */,
+				07A2E59D19B6A3290040A4F3 /* NTClockHariLookView.m */,
+				07A2E59F19B6A3990040A4F3 /* NTClockHourLookView.h */,
+				07A2E5A019B6A3990040A4F3 /* NTClockHourLookView.m */,
+				07A2E5A219B6A3DC0040A4F3 /* NTClockMinuteLookView.h */,
+				07A2E5A319B6A3DC0040A4F3 /* NTClockMinuteLookView.m */,
+			);
+			path = ClockLookView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +374,7 @@
 				0795425119A6D465009DACD1 /* InfoPlist.strings in Resources */,
 				07A2E50B19B2C1390040A4F3 /* Enn_Half_Hour.png in Resources */,
 				07A2E50619B2C1390040A4F3 /* Backgraund_x1.png in Resources */,
+				07A2E59819B697ED0040A4F3 /* NTClockLookView.xib in Resources */,
 				0795425A19A6D465009DACD1 /* Main.storyboard in Resources */,
 				07A2E50719B2C1390040A4F3 /* Backgraund_x2.png in Resources */,
 			);
@@ -365,12 +397,16 @@
 			files = (
 				07A2E53719B41AE00040A4F3 /* NTT1thViewController.m in Sources */,
 				07A2E4ED19B1ABD70040A4F3 /* NTClockMinuteView.m in Sources */,
+				07A2E5A419B6A3DC0040A4F3 /* NTClockMinuteLookView.m in Sources */,
+				07A2E5A119B6A3990040A4F3 /* NTClockHourLookView.m in Sources */,
+				07A2E59E19B6A3290040A4F3 /* NTClockHariLookView.m in Sources */,
 				0795425719A6D465009DACD1 /* NTAppDelegate.m in Sources */,
 				07A2E4EB19B1ABD70040A4F3 /* NTClockHariView.m in Sources */,
 				07A2E53419B419EE0040A4F3 /* NTT2thViewController.m in Sources */,
 				07A2E4EE19B1ABD70040A4F3 /* NTClockRecognizer.m in Sources */,
 				07A2E4F019B1ABD70040A4F3 /* NTClockView.m in Sources */,
 				07A2E51919B2C7630040A4F3 /* NTSignalViewController.m in Sources */,
+				07A2E59B19B698520040A4F3 /* NTClockLookView.m in Sources */,
 				07A2E4EA19B1ABD70040A4F3 /* NTClockGestureRecognizer.m in Sources */,
 				07A2E4EF19B1ABD70040A4F3 /* NTClockString.m in Sources */,
 				0795425319A6D465009DACD1 /* main.m in Sources */,

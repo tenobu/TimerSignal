@@ -1,14 +1,14 @@
 //
-//  NTClockView.m
-//  ClockRotationGesture
+//  NTClockLookView.m
+//  TimerSignal
 //
-//  Created by ビザンコムマック０９ on 2014/08/28.
+//  Created by ビザンコムマック０９ on 2014/09/03.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
-#import "NTClockView.h"
+#import "NTClockLookView.h"
 
-@interface NTClockView ()
+@interface NTClockLookView ()
 {
 	
 @private
@@ -22,12 +22,12 @@
 
 @end
 
-@implementation NTClockView
+@implementation NTClockLookView
 
-+ (NTClockView *)loadInstanceOfViewFromNib
++ (NTClockLookView *)loadInstanceOfViewFromNib
 {
 	
-    return [[[NSBundle mainBundle] loadNibNamed: @"NTClockView"
+    return [[[NSBundle mainBundle] loadNibNamed: @"NTClockLookView"
 										  owner: nil
 										options: nil] lastObject];
 	
@@ -40,14 +40,14 @@
     
 	if ( loadedFromSimpleVuew ) {
 		
-        NTClockView *clockView = [NTClockView loadInstanceOfViewFromNib];
+        NTClockLookView *clockLookView = [NTClockLookView loadInstanceOfViewFromNib];
 		
-        clockView.frame                  = self.frame;
-        clockView.autoresizingMask       = self.autoresizingMask;
-        clockView.alpha                  = self.alpha;
-        clockView.userInteractionEnabled = self.userInteractionEnabled;
+        clockLookView.frame                  = self.frame;
+        clockLookView.autoresizingMask       = self.autoresizingMask;
+        clockLookView.alpha                  = self.alpha;
+        clockLookView.userInteractionEnabled = self.userInteractionEnabled;
 		
-        return clockView;
+        return clockLookView;
 		
     }
 	
@@ -59,13 +59,13 @@
 {
 	
 	[super awakeFromNib];
-
+	
 	self.integer_AmPm = 1;
 	self.integer_Hour = self.integer_Minute = 0;
 	
 	self.imageView_Hour.clockRecognizer.delegate   = (id)self;
 	self.imageView_Minute.clockRecognizer.delegate = (id)self;
-
+	
 	self.string_AmPm = @"AM";
 	self.string_HHMM = @"00:00";
 	
@@ -83,25 +83,25 @@
 
 - (void)setBool_Used: (BOOL)_bool_used
 {
-
+	
 	self.imageView_Hour.userInteractionEnabled   = _bool_used;
 	self.imageView_Minute.userInteractionEnabled = _bool_used;
 	
 }
 
 /*- (BOOL)bool_Used
-{
-	
-	BOOL _bool_used = self.bool_Used;
-	
-	return _bool_used;
-	
-}*/
+ {
+ 
+ BOOL _bool_used = self.bool_Used;
+ 
+ return _bool_used;
+ 
+ }*/
 
 
 - (void)setDate_DateTime:(NSDate *)_date_datetime
 {
-
+	
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
 	
@@ -135,12 +135,12 @@
 	
 	[self.imageView_Hour   time: self.integer_Hour];
 	[self.imageView_Minute time: self.integer_Minute];
-		
+	
 }
 
 - (NSDate *)date_DateTime
 {
-
+	
 	return self.date_DateTime;
 	
 }
@@ -153,19 +153,19 @@
 	if ( [self.string_AmPm isEqualToString: @"AM"] ) {
 		
 		self.integer_AmPm = 2;
-	
+		
 	} else if ( [self.string_AmPm isEqualToString: @"PM"] ) {
 		
 		self.integer_AmPm = 1;
 		
 	}
-
+	
 	string_Hour         = [_time substringWithRange: NSMakeRange( 3, 2)];
 	self.integer_Hour   = string_Hour.integerValue;
 	
 	string_Minute       = [_time substringWithRange: NSMakeRange( 6, 2)];
 	self.integer_Minute = string_Minute.integerValue;
-
+	
 	[self button_Action        : nil];
 	[self.imageView_Hour   time: self.integer_Hour];
 	[self.imageView_Minute time: self.integer_Minute];
@@ -174,7 +174,7 @@
 
 - (NSString *)string_TimeNow
 {
-
+	
 	return [NSString stringWithFormat: @"%@ %@:%@", self.string_AmPm, string_Hour, string_Minute];
 	
 }
@@ -182,7 +182,7 @@
 - (IBAction)button_Action: (id)sender
 {
 	
-	[self amPm_Action];
+	// [self amPm_Action];
 	
 }
 

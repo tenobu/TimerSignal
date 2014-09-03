@@ -10,12 +10,13 @@
 
 #import "NTClockString.h"
 #import "NTClockView.h"
+#import "NTClockLookView.h"
 
 @interface NTT2thViewController : UIViewController < NTClockStringDelegate >
 
 @property (weak, nonatomic) IBOutlet UILabel *label_Start_HHMM;
 @property (weak, nonatomic) IBOutlet UILabel *label_Start_AmPm;
-@property (weak, nonatomic) IBOutlet NTClockView *clockView_Start;
+@property (weak, nonatomic) IBOutlet NTClockLookView *clockView_Start;
 @property (weak, nonatomic) IBOutlet UILabel *label_End_AmPm;
 @property (weak, nonatomic) IBOutlet UILabel *label_End_HHMM;
 @property (weak, nonatomic) IBOutlet NTClockView *clockView_End;
