@@ -88,9 +88,18 @@ const enum _timeResult {
 
     [super viewDidLoad];
 
+	self.clockView_Start.delegate = (id)self;
+	self.clockView_End.delegate   = (id)self;
+	
+	self.clockView_Start.string_StartEnd = @"Start";
+	self.clockView_End.string_StartEnd   = @"End";
+	
     NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
 	
-    string_Start = app.string_StartTime24;
+	self.clockView_Start.date_DateTime = app.date_Start;
+	self.clockView_End.date_DateTime   = app.date_End;
+		
+	/*string_Start = app.string_StartTime24;
     string_End   = app.string_EndTime24;
 	
  	dateFormatter = [[NSDateFormatter alloc] init];
@@ -133,7 +142,7 @@ const enum _timeResult {
 												   target: self
 												 selector: @selector(onTimer_Defalt:)
 												 userInfo: nil
-												  repeats: YES];
+												  repeats: YES];*/
 
 }
 
@@ -142,6 +151,35 @@ const enum _timeResult {
     
     [super didReceiveMemoryWarning];
 
+}
+
+- (void)time: (NSString *)_startEnd
+{
+	
+	//NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
+	
+	if ( [_startEnd isEqualToString: @"Start"] ) {
+		
+		self.label_Start_AmPm.text = self.clockView_Start.string_AmPm;
+		self.label_Start_HHMM.text = self.clockView_Start.string_HHMM;
+		
+		/*app.string_StartTime = [NSString stringWithFormat:
+		 @"%@ %@", self.clockView_Start.string_AmPm, self.clockView_Start.string_HHMM];*/
+		
+		//app.date_Start = self.clockView_Start.date_DateTime;
+		
+	} else if ( [_startEnd isEqualToString: @"End"] ) {
+		
+		self.label_End_AmPm.text = self.clockView_End.string_AmPm;
+		self.label_End_HHMM.text = self.clockView_End.string_HHMM;
+		
+		/*app.string_EndTime = [NSString stringWithFormat:
+		 @"%@ %@", self.clockView_End.string_AmPm, self.clockView_End.string_HHMM];*/
+		
+		//app.date_End = self.clockView_End.date_DateTime;
+		
+	}
+	
 }
 
 - (void)onTimer_Defalt: (NSTimer *)_timer

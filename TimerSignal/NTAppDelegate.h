@@ -21,6 +21,8 @@
 @property NSString *string_StartTime, *string_EndTime;
 @property NSString *string_StartTime24, *string_EndTime24;
 
+@property NSDate *date_Start, *date_End;
+
 /*- (void)setStartDateTime: (NSString *)start_date_time;
 - (NSString *)startDateTime;
 

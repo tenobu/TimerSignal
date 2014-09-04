@@ -8,6 +8,8 @@
 
 #import "NTT2thViewController.h"
 
+#import "NTAppDelegate.h"
+
 @interface NTT2thViewController ()
 
 @end
@@ -45,7 +47,7 @@
 - (void)time: (NSString *)_startEnd
 {
 	
-	// NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
+	NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
 	
 	if ( [_startEnd isEqualToString: @"Start"] ) {
 		
@@ -55,6 +57,8 @@
 		/*app.string_StartTime = [NSString stringWithFormat:
 		 @"%@ %@", self.clockView_Start.string_AmPm, self.clockView_Start.string_HHMM];*/
 		
+		app.date_Start = self.clockView_Start.date_DateTime;
+		
 	} else if ( [_startEnd isEqualToString: @"End"] ) {
 		
 		self.label_End_AmPm.text = self.clockView_End.string_AmPm;
@@ -63,6 +67,8 @@
 		/*app.string_EndTime = [NSString stringWithFormat:
 		 @"%@ %@", self.clockView_End.string_AmPm, self.clockView_End.string_HHMM];*/
 		
+		app.date_End = self.clockView_End.date_DateTime;
+
 	}
 	
 }

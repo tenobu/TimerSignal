@@ -1,8 +1,8 @@
 //
-//  NTClockLookView.h
+//  NTClockRunView.h
 //  TimerSignal
 //
-//  Created by ビザンコムマック０９ on 2014/09/03.
+//  Created by ビザンコムマック０９ on 2014/09/04.
 //  Copyright (c) 2014年 ビザンコムマック０９. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 #import "NTClockHourLookView.h"
 #import "NTClockMinuteLookView.h"
 
-@protocol NTClockLookViewDelegate < NSObject >
+@protocol NTClockRunViewDelegate < NSObject >
 
 @optional
 
@@ -19,13 +19,13 @@
 
 @end
 
-@interface NTClockLookView : UIView < NTClockRecognizerDelegate >
+@interface NTClockRunView : UIView < NTClockRecognizerDelegate >
 
 @property (weak, nonatomic) IBOutlet UIButton *button_AmPm;
 @property (weak, nonatomic) IBOutlet NTClockHourLookView   *imageView_Hour;
 @property (weak, nonatomic) IBOutlet NTClockMinuteLookView *imageView_Minute;
 
-@property (nonatomic, assign) id < NTClockLookViewDelegate > delegate;
+@property (nonatomic, assign) id < NTClockRunViewDelegate > delegate;
 
 @property NSString *string_StartEnd;
 

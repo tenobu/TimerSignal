@@ -1,3 +1,4 @@
+
 //
 //  NTClockLookView.m
 //  TimerSignal
@@ -17,6 +18,8 @@
 	
 	NSString *string_Hour;
 	NSString *string_Minute;
+
+	NSTimer *timer_NowTime;
 	
 }
 
@@ -81,23 +84,6 @@
 	
 }
 
-- (void)setBool_Used: (BOOL)_bool_used
-{
-	
-	self.imageView_Hour.userInteractionEnabled   = _bool_used;
-	self.imageView_Minute.userInteractionEnabled = _bool_used;
-	
-}
-
-/*- (BOOL)bool_Used
- {
- 
- BOOL _bool_used = self.bool_Used;
- 
- return _bool_used;
- 
- }*/
-
 
 - (void)setDate_DateTime:(NSDate *)_date_datetime
 {
@@ -106,8 +92,9 @@
     [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
 	
 	NSString *string_datetime = [dateFormatter stringFromDate: _date_datetime];
-	NSString *string_time = [string_datetime substringFromIndex: 11];
-	NSString *string_hout = [string_time     substringToIndex  :  2];
+	self.string_Date      = [string_datetime  substringToIndex  : 10];
+	self.string_Time      = [string_datetime  substringFromIndex: 11];
+	NSString *string_hout = [self.string_Time substringToIndex  :  2];
 	
 	NSInteger integer_hour = string_hout.integerValue;
 	
@@ -125,23 +112,54 @@
 		
 	}
 	
-	string_Hour         = [NSString stringWithFormat: @"%ld", integer_hour];
-	self.integer_Hour   = string_Hour.integerValue;
+	string_Hour              = [NSString stringWithFormat: @"%02ld", integer_hour];
+	self.integer_Hour        = string_Hour.integerValue;
 	
-	string_Minute       = [string_time substringWithRange: NSMakeRange(3, 2)];
-	self.integer_Minute = string_Minute.integerValue;
+	string_Minute            = [self.string_Time substringWithRange: NSMakeRange(3, 2)];
+	self.integer_Minute      = string_Minute.integerValue;
+	
+	NSString *string_second  = [self.string_Time substringWithRange: NSMakeRange(6, 2)];
+	NSInteger integer_second = string_second.integerValue;
 	
 	[self amPm_Action];
 	
 	[self.imageView_Hour   time: self.integer_Hour];
 	[self.imageView_Minute time: self.integer_Minute];
+
+
+	[self setNowTimer];
 	
+	[NSTimer scheduledTimerWithTimeInterval: 60 - integer_second
+									 target: self
+								   selector: @selector(setOldTimer)
+								   userInfo: nil
+									repeats: NO];
+
 }
 
 - (NSDate *)date_DateTime
 {
 	
-	return self.date_DateTime;
+	NSString *string_hhmm = self.string_HHMM;
+	
+	if ( [self.string_AmPm isEqualToString: @"PM"] ) {
+		
+		NSString *string_hh = [self.string_HHMM substringWithRange: NSMakeRange( 0, 2 )];
+		NSInteger integer_hh = string_hh.integerValue;
+		NSString *string_mm = [self.string_HHMM substringWithRange: NSMakeRange( 3, 2 )];
+		
+		integer_hh += 12;
+		
+		string_hhmm = [NSString stringWithFormat: @"%02ld:%@", integer_hh, string_mm];
+		
+	}
+	
+	NSString *string_date_time = [NSString stringWithFormat: @"%@ %@:00", self.string_Date, string_hhmm];
+
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
+	
+	return [dateFormatter dateFromString: string_date_time];
 	
 }
 
@@ -176,6 +194,60 @@
 {
 	
 	return [NSString stringWithFormat: @"%@ %@:%@", self.string_AmPm, string_Hour, string_Minute];
+	
+}
+
+- (void)setOldTimer
+{
+	
+	[NSTimer scheduledTimerWithTimeInterval: 60 * 1
+									 target: self
+								   selector: @selector(setNowTimer)
+								   userInfo: nil
+									repeats: YES];
+
+	[self setNowTimer];
+	
+}
+
+- (void)setNowTimer
+{
+	
+	NSDate *date_now = [NSDate new];
+	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
+	
+	NSString *string_datetime = [dateFormatter stringFromDate: date_now];
+	NSString *string_time = [string_datetime substringFromIndex: 11];
+	NSString *string_hout = [string_time     substringToIndex  :  2];
+	
+	NSInteger integer_hour = string_hout.integerValue;
+	
+	if ( 0 <= integer_hour && integer_hour <= 11 ) {
+		
+		self.string_AmPm = @"AM";
+		self.integer_AmPm = 2;
+		
+	} else if ( 12 <= integer_hour && integer_hour <= 23 ) {
+		
+		self.string_AmPm = @"PM";
+		self.integer_AmPm = 1;
+		
+		integer_hour -= 12;
+		
+	}
+	
+	string_Hour              = [NSString stringWithFormat: @"%02ld", integer_hour];
+	self.integer_Hour        = string_Hour.integerValue;
+	
+	string_Minute            = [string_time substringWithRange: NSMakeRange(3, 2)];
+	self.integer_Minute      = string_Minute.integerValue;
+	
+	[self amPm_Action];
+	
+	[self.imageView_Hour   time: self.integer_Hour];
+	[self.imageView_Minute time: self.integer_Minute];
 	
 }
 

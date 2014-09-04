@@ -31,7 +31,7 @@
 
 @property NSDate *date_DateTime;
 @property NSString *string_Time, *string_TimeNow;
-@property NSString *string_AmPm, *string_HHMM;
+@property NSString *string_Date, *string_AmPm, *string_HHMM;
 @property NSInteger integer_AmPm, integer_Hour, integer_Minute;
 
 - (void)time;
