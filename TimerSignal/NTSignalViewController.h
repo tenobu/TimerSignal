@@ -11,13 +11,14 @@
 #import "NTClockString.h"
 #import "NTClockView.h"
 #import "NTClockLookView.h"
+#import "NTClockRunView.h"
 #import "NTClockStopView.h"
 
 @interface NTSignalViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *label_Start_HHMM;
 @property (weak, nonatomic) IBOutlet UILabel *label_Start_AmPm;
-@property (weak, nonatomic) IBOutlet NTClockLookView *clockView_Start;
+@property (weak, nonatomic) IBOutlet NTClockRunView *clockView_Start;
 @property (weak, nonatomic) IBOutlet UILabel *label_End_AmPm;
 @property (weak, nonatomic) IBOutlet UILabel *label_End_HHMM;
 @property (weak, nonatomic) IBOutlet NTClockStopView *clockView_End;

@@ -16,10 +16,10 @@
 
 @private
 	
-    NSString *string_Start, *string_End;
-
     NSDate *date_Now, *date_Start, *date_Stop;
 
+    NSString *string_Start, *string_End;
+	
 	
 	NSDateFormatter *dateFormatter, *timeFormatter;
 	
@@ -96,39 +96,26 @@ const enum _timeResult {
 	
     NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
 	
-	self.clockView_Start.date_DateTime = app.date_Start;
-	self.clockView_End.date_DateTime   = app.date_End;
-		
-	/*string_Start = app.string_StartTime24;
-    string_End   = app.string_EndTime24;
+	date_Start = self.clockView_Start.date_DateTime = app.date_Start;
+	date_Stop  = self.clockView_End.date_DateTime   = app.date_End;
+	
+	date_Now = date_Start;
 	
  	dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat: @"yyyy/MM/dd HH:mm:ss"];
 	
- 	timeFormatter = [[NSDateFormatter alloc] init];
-    [timeFormatter setDateFormat: @"HH:mm:ss"];
+	string_Start = [dateFormatter stringFromDate: date_Now];
+	string_End   = [dateFormatter stringFromDate: date_Stop];
 	
-	
-	
-	
-	
-	
-	
-	date_Start = [dateFormatter dateFromString: string_Start];
-	string_StartTime = [timeFormatter stringFromDate: date_Start];
-
-	date_Stop  = [dateFormatter dateFromString: string_End];
-	string_StopTime = [timeFormatter stringFromDate: date_Stop];
-
 	// integer_TimeResultの初期値
 	integer_TimeResult = timeResult_Mae;
 	
 	// bool_AudioResultの初期値
 	bool_AudioResult = NO;
 	
-	[_startLabel setText: string_StartTime];
+	/*[_startLabel setText: string_StartTime];
 	[_timeLabel  setText: string_StartTime];
-	[_stopLabel  setText: string_StopTime];
+	[_stopLabel  setText: string_StopTime];*/
 	
 	calendar = [NSCalendar currentCalendar];
 
@@ -142,7 +129,7 @@ const enum _timeResult {
 												   target: self
 												 selector: @selector(onTimer_Defalt:)
 												 userInfo: nil
-												  repeats: YES];*/
+												  repeats: YES];
 
 }
 
@@ -344,6 +331,8 @@ const enum _timeResult {
 			
 		}
 		
+		// NSLog( @"Audio = %d", bool_AudioResult );
+		
 		if ( bool_AudioResult ) {
 				
 			// 音声合成
@@ -357,7 +346,7 @@ const enum _timeResult {
 			// NSLog( @"bool_AudioResult == %d", bool_AudioResult );
 			
 			// 音声の発生
-			// [speechSynthesizer speakUtterance: utterance];
+			[speechSynthesizer speakUtterance: utterance];
 		
 		}
 		
