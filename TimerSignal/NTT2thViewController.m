@@ -30,7 +30,8 @@
     //NTAppDelegate *app = [[UIApplication sharedApplication] delegate];
 	
 	self.clockView_Start.date_DateTime = [NSDate new];	
-	self.clockView_End.date_DateTime   = [NSDate dateWithTimeIntervalSinceNow: 5 * 60 * 60];
+	//self.clockView_End.date_DateTime   = [NSDate dateWithTimeIntervalSinceNow: 5 * 60 * 60];
+	self.clockView_End.date_DateTime   = [NSDate dateWithTimeIntervalSinceNow: 2 * 60];
 	
 	//app.string_StartTime = self.clockView_Start.string_TimeNow = @"AM 09:30";
 	//app.string_EndTime   = self.clockView_End.string_TimeNow   = @"PM 04:00";
